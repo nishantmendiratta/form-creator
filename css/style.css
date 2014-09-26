@@ -1,0 +1,59 @@
+body{
+	margin: 0 auto;
+	font-size: 14px;
+}
+
+a{
+	text-decoration: none;
+	color: #d3535e;
+	font-size: 14px;
+}
+
+input{
+	width: 150px;
+}
+#append_to_demo_form{
+	display: none;
+	text-align: center;
+	background: #F1F1F1;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding: 10px;
+	font-size: 14px;
+}
+
+code{
+	text-align: center;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+#html_markup {
+	width: 940px;
+	margin: 0 auto;
+	text-align: center;
+	background: rgb(0, 0, 0);
+	padding: 5px;
+	color: rgb(255, 212, 149);
+}
+
+header,footer{
+	text-align: center;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+article{
+	text-align: center;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.fieldsets{
+	width: 50%;
+	margin: 0 auto;
+}
+
+.container{
+	text-align: center;
+}

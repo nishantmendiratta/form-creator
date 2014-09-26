@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script type="text/javascript" src='js/greenify.js' defer></script>
+	<Link rel="stylesheet" href='css/style.css' type='text/css'/>
+	<title>JS Modules</title>
+</head>
+<body>
+	<header>
+		<label>jQuery Modules - Demo Form Creator</label>
+	</header>
+
+<div id="append_to_demo_form"></div>
+
+<code>
+	<div id="html_markup"></div>
+</code>
+
+<article>
+
+	<label>Select Form Elements</label>
+
+	<select id="lgm_elements" >
+		<option value="form">Add Form</option>
+		<option value="label">Add Label</option>
+		<option value="textbox">Add Text Box</option>
+		<option value="textarea">Add Text Area</option>
+		<option value="passwordbox">Add Password Field</option>
+		<option value="radiobutton">Add Radio Button</option>
+		<option value="checkbox">Add CheckBox</option>
+		<option value="selectbox">Add Select Box</option>
+		<option value="button">Add Button</option>
+	</select>
+</article>
+
+<div class="container">
+<div class="fieldsets">
+	<fieldset id="fieldset_form">
+		<legend>Add Form</legend>
+		<label></label> 
+		<input type="text" id="lgm_frm_append_to" placeholder="Append To class/id" value="append_to_demo_form" disabled>
+		<input type="text" id="lgm_frm_class" placeholder="This Element Class" value="class_lgm_form">
+		<input type="text" id="lgm_frm_name" placeholder="This Element Name" value="name_lgm_form">
+		<a href="#" id="add_frm_lgm">Create</a>
+	</fieldset>
+	<fieldset id="fieldset_label">
+		<legend>Add Label</legend>
+		<label></label>
+		<input type="text" id="lgm_label_append_to" placeholder="Append To class/id">
+		<input type="text" id="lgm_label_class" placeholder="This Element Class" value="class_lgm_label">
+		<input type="text" id="lgm_label_name" placeholder="This Element Name" value="name_lgm_label">
+		<input type="text" id="lgm_label_value" placeholder="This Element Value" value="your_label_here">
+		<a href="#" id="add_label_lgm">Create</a>
+	</fieldset>
+	<fieldset id="fieldset_textbox">
+		<legend>Add Text Box</legend>
+		<label></label>
+		<input type="text" id="append_to" placeholder="Append To class/id">
+		<input type="text" id="lgm_field_class" placeholder="This Element Class">
+		<input type="text" id="lgm_field_name" placeholder="This Element Name">
+		<a href="#">Create</a>
+	</fieldset>
+	<fieldset id="fieldset_textarea">
+		<legend>Add Text Area</legend>
+		<label></label>
+		<input type="text" id="append_to" placeholder="Append To class/id">
+		<input type="text" id="lgm_field_class" placeholder="This Element Class">
+		<input type="text" id="lgm_field_name" placeholder="This Element Name">
+		<a href="#">Create</a>
+	</fieldset>
+	<fieldset id="fieldset_passwordbox">
+		<legend>Add Password Field</legend>
+		<label></label>
+		<input type="text" id="append_to" placeholder="Append To class/id">
+		<input type="text" id="lgm_field_class" placeholder="This Element Class">
+		<input type="text" id="lgm_field_name" placeholder="This Element Name">
+		<a href="#">Create</a>
+	</fieldset>
+	<fieldset id="fieldset_radiobutton">
+		<legend>Add Radio Button</legend>
+		<label></label>
+		<input type="text" id="append_to" placeholder="Append To class/id">
+		<input type="text" id="lgm_field_class" placeholder="This Element Class">
+		<input type="text" id="lgm_field_name" placeholder="This Element Name">
+		<a href="#">Create</a>
+	</fieldset>
+	<fieldset id="fieldset_checkbox">
+		<legend>Add CheckBox</legend>
+		<label></label>
+		<input type="text" id="append_to" placeholder="Append To class/id">
+		<input type="text" id="lgm_field_class" placeholder="This Element Class">
+		<input type="text" id="lgm_field_name" placeholder="This Element Name">
+		<a href="#">Create</a>
+	</fieldset>
+	<fieldset id="fieldset_selectbox">
+		<legend>Add Select Box</legend>
+		<label></label>
+		<input type="text" id="append_to" placeholder="Append To class/id">
+		<input type="text" id="lgm_field_class" placeholder="This Element Class">
+		<input type="text" id="lgm_field_name" placeholder="This Element Name">
+		<a href="#">Create</a>
+	</fieldset>
+	<fieldset id="fieldset_button">
+		<legend>Add Submit Button</legend>
+		<label></label>
+		<input type="text" id="append_to" placeholder="Append To class/id">
+		<input type="text" id="lgm_field_class" placeholder="This Element Class">
+		<input type="text" id="lgm_field_name" placeholder="This Element Name">
+		<a href="#">Create</a>
+	</fieldset>
+</div>
+</div>
+<footer>
+	&copy <a href="http://github.com/nishantmendiratta/">xyz.github.io</a> 2014
+</footer>
+</body>
+</html>
