@@ -55,11 +55,33 @@ $('#lgm_elements').on('change', function (e) {
 	$.fn.addTextbox_lgm = function(textbox_append_to,textbox_class,textbox_name){
 			var textbox = $("<input/>",
 							 { name: textbox_name,
-							   class: textbox_class
+							   class: textbox_class,
+							   type: "text"
 							 }
 						  );
 			textbox_append_to = prepend_period(textbox_append_to);
 			$(textbox_append_to).append(textbox);
+	};
+
+	$.fn.addtextarea_lgm = function(textarea_append_to,textarea_class,textarea_name){
+			var textarea = $("<textarea/>",
+							 { name: textarea_name,
+							   class: textarea_class
+							 }
+						  );
+			textarea_append_to = prepend_period(textarea_append_to);
+			$(textarea_append_to).append(textarea);
+	};
+
+	$.fn.addtextpassword_lgm = function(textpassword_append_to,textpassword_class,textpassword_name){
+			var textpassword = $("<input/>",
+							 { name: textpassword_name,
+							   class: textpassword_class,
+							   type: "password"
+							 }
+						  );
+			textpassword_append_to = prepend_period(textpassword_append_to);
+			$(textpassword_append_to).append(textpassword);
 	};
 
 	$.fn.addInputbox_lgm = function() {
@@ -127,4 +149,33 @@ $("#add_textbox_lgm").click(function(){
 
 });
 
+$("#add_textarea_lgm").click(function(){
+
+	var textarea_append_to = $("#lgm_textarea_append_to").val();
+	var textarea_class = $("#lgm_textarea_class").val(); 
+	var textarea_name = $("#lgm_textarea_name").val();
+
+	if(textarea_append_to!=""&&textarea_class!=""&&textarea_name!="")
+		$(textarea_append_to).addtextarea_lgm(textarea_append_to,textarea_class,textarea_name);
+	else
+		return (alert("Fill all required fields"));
+
+	convert_to_code();
+
+});
+
+$("#add_textpassword_lgm").click(function(){
+
+	var textpassword_append_to = $("#lgm_textpassword_append_to").val();
+	var textpassword_class = $("#lgm_textpassword_class").val(); 
+	var textpassword_name = $("#lgm_textpassword_name").val();
+
+	if(textpassword_append_to!=""&&textpassword_class!=""&&textpassword_name!="")
+		$(textpassword_append_to).addtextpassword_lgm(textpassword_append_to,textpassword_class,textpassword_name);
+	else
+		return (alert("Fill all required fields"));
+
+	convert_to_code();
+
+});
 
