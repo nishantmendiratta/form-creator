@@ -8,7 +8,7 @@ $(document).ready( function(){
 
 function convert_to_code(){
 	$('#html_markup').show();
-	document.getElementById('html_markup').innerHTML = document.getElementById('append_to_demo_form').innerHTML.replace(/&/g, '&amp;').replace(/</g, '&lt;') ;
+	document.getElementById('html_markup').innerHTML = 	document.getElementById('append_to_demo_form').innerHTML.replace(/&/g, '&amp;<br/>').replace(/</g, '<br/><br/>&lt;') ;
 }
 
 function hide_all_fieldsets(){
@@ -108,6 +108,32 @@ $('#lgm_elements').on('change', function (e) {
 			$(checkbox_append_to).append(checkbox);
 	};
 
+	$.fn.addselectbox_lgm = function(selectbox_append_to,selectbox_class,selectbox_name) {
+			var selectbox = $("<select/>",
+							{ name: selectbox_name,
+							  class: selectbox_class
+							}
+						);
+
+			selectbox_append_to = prepend_period(selectbox_append_to);
+			$(selectbox_append_to).append(selectbox);
+
+			var opt = $("<option/>",{text:"option_1",value:"option_1"});
+
+			var opt_append_to_select = prepend_period(selectbox_class);
+			$(opt_append_to_select).append(opt);
+	};
+
+	$.fn.addbutton_lgm = function(button_append_to,button_class,button_name){
+			var button = $("<button/>",
+							 { name: button_name,
+							   class: button_class,
+							   text: "btn"
+							 }
+						  );
+			button_append_to = prepend_period(button_append_to);
+			$(button_append_to).append(button);
+	};
 
 	$.fn.addInputbox_lgm = function() {
 		return this;
@@ -228,6 +254,32 @@ $("#add_checkbox_lgm").click(function(){
 
 	if(checkbox_append_to!=""&&checkbox_class!=""&&checkbox_name!=""&&checkbox_value!="")
 		$(checkbox_append_to).addcheckbox_lgm(checkbox_append_to,checkbox_class,checkbox_name,checkbox_value);
+	else
+		return (alert("Fill all required fields"));
+
+	convert_to_code();
+});
+
+$("#add_selectbox_lgm").click(function(){
+	var selectbox_append_to = $("#lgm_selectbox_append_to").val();
+	var selectbox_class = $("#lgm_selectbox_class").val(); 
+	var selectbox_name = $("#lgm_selectbox_name").val();
+
+	if(selectbox_append_to!=""&&selectbox_class!=""&&selectbox_name!="")
+		$(selectbox_append_to).addselectbox_lgm(selectbox_append_to,selectbox_class,selectbox_name);
+	else
+		return (alert("Fill all required fields"));
+
+	convert_to_code();
+});
+
+$("#add_button_lgm").click(function(){
+	var button_append_to = $("#lgm_button_append_to").val();
+	var button_class = $("#lgm_button_class").val(); 
+	var button_name = $("#lgm_button_name").val();
+
+	if(button_append_to!=""&&button_class!=""&&button_name!="")
+		$(button_append_to).addbutton_lgm(button_append_to,button_class,button_name);
 	else
 		return (alert("Fill all required fields"));
 
