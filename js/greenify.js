@@ -84,6 +84,31 @@ $('#lgm_elements').on('change', function (e) {
 			$(textpassword_append_to).append(textpassword);
 	};
 
+	$.fn.addradio_lgm = function(radio_append_to,radio_class,radio_name,radio_value) {
+			var radio = $("<input/>",
+							{ name: radio_name,
+							  class: radio_class,
+							  value: radio_value,
+							  type: "radio"
+							}
+						);
+			radio_append_to = prepend_period(radio_append_to);
+			$(radio_append_to).append(radio);
+	};
+
+	$.fn.addcheckbox_lgm = function(checkbox_append_to,checkbox_class,checkbox_name,checkbox_value) {
+			var checkbox = $("<input/>",
+							{ name: checkbox_name,
+							  class: checkbox_class,
+							  value: checkbox_value,
+							  type: "checkbox"
+							}
+						);
+			checkbox_append_to = prepend_period(checkbox_append_to);
+			$(checkbox_append_to).append(checkbox);
+	};
+
+
 	$.fn.addInputbox_lgm = function() {
 		return this;
 	};
@@ -179,3 +204,32 @@ $("#add_textpassword_lgm").click(function(){
 
 });
 
+$("#add_radio_lgm").click(function(){
+
+	var radio_append_to = $("#lgm_radio_append_to").val();
+	var radio_class = $("#lgm_radio_class").val(); 
+	var radio_name = $("#lgm_radio_name").val();
+	var radio_value = $("#lgm_radio_value").val();
+
+	if(radio_append_to!=""&&radio_class!=""&&radio_name!=""&&radio_value!="")
+		$(radio_append_to).addradio_lgm(radio_append_to,radio_class,radio_name,radio_value);
+	else
+		return (alert("Fill all required fields"));
+
+	convert_to_code();
+});
+
+$("#add_checkbox_lgm").click(function(){
+
+	var checkbox_append_to = $("#lgm_checkbox_append_to").val();
+	var checkbox_class = $("#lgm_checkbox_class").val(); 
+	var checkbox_name = $("#lgm_checkbox_name").val();
+	var checkbox_value = $("#lgm_checkbox_value").val();
+
+	if(checkbox_append_to!=""&&checkbox_class!=""&&checkbox_name!=""&&checkbox_value!="")
+		$(checkbox_append_to).addcheckbox_lgm(checkbox_append_to,checkbox_class,checkbox_name,checkbox_value);
+	else
+		return (alert("Fill all required fields"));
+
+	convert_to_code();
+});
