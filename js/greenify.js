@@ -52,6 +52,16 @@ $('#lgm_elements').on('change', function (e) {
 			$(label_append_to).append(label);
 	};
 
+	$.fn.addTextbox_lgm = function(textbox_append_to,textbox_class,textbox_name){
+			var textbox = $("<input/>",
+							 { name: textbox_name,
+							   class: textbox_class
+							 }
+						  );
+			textbox_append_to = prepend_period(textbox_append_to);
+			$(textbox_append_to).append(textbox);
+	};
+
 	$.fn.addInputbox_lgm = function() {
 		return this;
 	};
@@ -64,7 +74,7 @@ $('#lgm_elements').on('change', function (e) {
 	prepend_period = function(get_name){
 		get_name = "."+get_name;
 		return get_name;
-	}
+	} 
 	
 }(jQuery));
  
@@ -100,6 +110,21 @@ $("#add_label_lgm").click(function(){
 		return (alert("Fill all required fields"));
 
 	convert_to_code();
+});
+
+$("#add_textbox_lgm").click(function(){
+
+	var textbox_append_to = $("#lgm_textbox_append_to").val();
+	var textbox_class = $("#lgm_textbox_class").val(); 
+	var textbox_name = $("#lgm_textbox_name").val();
+
+	if(textbox_append_to!=""&&textbox_class!=""&&textbox_name!="")
+		$(textbox_append_to).addTextbox_lgm(textbox_append_to,textbox_class,textbox_name);
+	else
+		return (alert("Fill all required fields"));
+
+	convert_to_code();
+
 });
 
 
