@@ -39,10 +39,24 @@ code{
 	color: rgb(255, 212, 149);
 }
 
+header{
+	font-family: cursive;
+	font-size: 18pt;
+	color: #3d326c;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
 header,footer{
 	text-align: center;
 	margin-top: 10px;
 	margin-bottom: 10px;
+}
+
+.errResponse{
+	text-align: center;
+	font-family: monospace;
+	color: red;
 }
 
 article{

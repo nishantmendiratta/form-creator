@@ -7,6 +7,7 @@ $(document).ready( function(){
 });
 
 function convert_to_code(){
+	document.getElementById('errMessage').innerHTML = "";
 	$('#html_markup').show();
 	document.getElementById('html_markup').innerHTML = 	document.getElementById('append_to_demo_form').innerHTML.replace(/&/g, '&amp;<br/>').replace(/</g, '<br/><br/>&lt;') ;
 }
@@ -156,18 +157,29 @@ $('#lgm_elements').on('change', function (e) {
 //$("<input type='text'>").appendTo( ".frm_lgm" );
 
 
+function errMessage(){
+	document.getElementById('errMessage').innerHTML = "Fill all required fields";
+}
+
+function class_not_found(){
+	document.getElementById('errMessage').innerHTML = "Class not found";
+}
+
 $("#add_frm_lgm").click(function(){	
 	
 	var frm_append_to = $("#lgm_frm_append_to").val();
 	var frm_class = $("#lgm_frm_class").val();
 	var frm_name = $("#lgm_frm_name").val();
 
-	if(frm_append_to!=""&&frm_class!=""&&frm_name!="")
+	if(frm_append_to!=""&&frm_class!=""&&frm_name!=""){
 		$( "#demo_form" ).addForm_lgm(frm_append_to,frm_class,frm_name);
-	else
-		return (alert("Fill all required fields"));
+		convert_to_code();
+	}
+	else{
 
-	convert_to_code();
+		errMessage();
+	}
+	
 });
 
 $("#add_label_lgm").click(function(){
@@ -177,12 +189,23 @@ $("#add_label_lgm").click(function(){
 	var label_name = $("#lgm_label_name").val();
 	var label_value = $("#lgm_label_value").val();
 
-	if(label_append_to!=""&&label_class!=""&&label_name!=""&&label_value!="")
-		$(label_append_to).addLabel_lgm(label_append_to,label_class,label_name,label_value);
-	else
-		return (alert("Fill all required fields"));
+	if(label_append_to!=""&&label_class!=""&&label_name!=""&&label_value!=""){
+		
+		var chk_class_exists = $("#append_to_demo_form").children().hasClass(label_append_to);
 
-	convert_to_code();
+		if(chk_class_exists){
+			$(label_append_to).addLabel_lgm(label_append_to,label_class,label_name,label_value);
+			convert_to_code();
+		}else{
+			class_not_found();
+		}
+	}
+	else{
+
+		errMessage();
+	}
+
+	
 });
 
 $("#add_textbox_lgm").click(function(){
@@ -191,12 +214,20 @@ $("#add_textbox_lgm").click(function(){
 	var textbox_class = $("#lgm_textbox_class").val(); 
 	var textbox_name = $("#lgm_textbox_name").val();
 
-	if(textbox_append_to!=""&&textbox_class!=""&&textbox_name!="")
-		$(textbox_append_to).addTextbox_lgm(textbox_append_to,textbox_class,textbox_name);
-	else
-		return (alert("Fill all required fields"));
+	if(textbox_append_to!=""&&textbox_class!=""&&textbox_name!=""){
 
-	convert_to_code();
+		var chk_class_exists = $("#append_to_demo_form").children().hasClass(textbox_append_to);
+
+		if(chk_class_exists){
+			$(textbox_append_to).addTextbox_lgm(textbox_append_to,textbox_class,textbox_name);
+			convert_to_code();
+		}else{
+			class_not_found();
+		}
+	}
+	else{
+		errMessage();
+	}
 
 });
 
@@ -206,12 +237,20 @@ $("#add_textarea_lgm").click(function(){
 	var textarea_class = $("#lgm_textarea_class").val(); 
 	var textarea_name = $("#lgm_textarea_name").val();
 
-	if(textarea_append_to!=""&&textarea_class!=""&&textarea_name!="")
-		$(textarea_append_to).addtextarea_lgm(textarea_append_to,textarea_class,textarea_name);
-	else
-		return (alert("Fill all required fields"));
+	if(textarea_append_to!=""&&textarea_class!=""&&textarea_name!=""){
 
-	convert_to_code();
+		var chk_class_exists = $("#append_to_demo_form").children().hasClass(textarea_append_to);
+
+		if(chk_class_exists){
+			$(textarea_append_to).addtextarea_lgm(textarea_append_to,textarea_class,textarea_name);
+			convert_to_code();
+		}else{
+			class_not_found();
+		}
+	}
+	else{
+		errMessage();
+	}
 
 });
 
@@ -221,12 +260,20 @@ $("#add_textpassword_lgm").click(function(){
 	var textpassword_class = $("#lgm_textpassword_class").val(); 
 	var textpassword_name = $("#lgm_textpassword_name").val();
 
-	if(textpassword_append_to!=""&&textpassword_class!=""&&textpassword_name!="")
-		$(textpassword_append_to).addtextpassword_lgm(textpassword_append_to,textpassword_class,textpassword_name);
-	else
-		return (alert("Fill all required fields"));
+	if(textpassword_append_to!=""&&textpassword_class!=""&&textpassword_name!=""){
 
-	convert_to_code();
+		var chk_class_exists = $("#append_to_demo_form").children().hasClass(textpassword_append_to);
+
+		if(chk_class_exists){
+			$(textpassword_append_to).addtextpassword_lgm(textpassword_append_to,textpassword_class,textpassword_name);
+			convert_to_code();
+		}else{
+			class_not_found();
+		}	
+	}
+	else{
+		errMessage();
+	}
 
 });
 
@@ -237,12 +284,20 @@ $("#add_radio_lgm").click(function(){
 	var radio_name = $("#lgm_radio_name").val();
 	var radio_value = $("#lgm_radio_value").val();
 
-	if(radio_append_to!=""&&radio_class!=""&&radio_name!=""&&radio_value!="")
-		$(radio_append_to).addradio_lgm(radio_append_to,radio_class,radio_name,radio_value);
-	else
-		return (alert("Fill all required fields"));
+	if(radio_append_to!=""&&radio_class!=""&&radio_name!=""&&radio_value!=""){
 
-	convert_to_code();
+		var chk_class_exists = $("#append_to_demo_form").children().hasClass(radio_append_to);
+
+		if(chk_class_exists){
+			$(radio_append_to).addradio_lgm(radio_append_to,radio_class,radio_name,radio_value);
+			convert_to_code();
+		}else{
+			class_not_found();
+		}	
+	}
+	else{
+		errMessage();
+	}
 });
 
 $("#add_checkbox_lgm").click(function(){
@@ -252,12 +307,20 @@ $("#add_checkbox_lgm").click(function(){
 	var checkbox_name = $("#lgm_checkbox_name").val();
 	var checkbox_value = $("#lgm_checkbox_value").val();
 
-	if(checkbox_append_to!=""&&checkbox_class!=""&&checkbox_name!=""&&checkbox_value!="")
-		$(checkbox_append_to).addcheckbox_lgm(checkbox_append_to,checkbox_class,checkbox_name,checkbox_value);
-	else
-		return (alert("Fill all required fields"));
+	if(checkbox_append_to!=""&&checkbox_class!=""&&checkbox_name!=""&&checkbox_value!=""){
 
-	convert_to_code();
+		var chk_class_exists = $("#append_to_demo_form").children().hasClass(checkbox_append_to);
+
+		if(chk_class_exists){
+			$(checkbox_append_to).addcheckbox_lgm(checkbox_append_to,checkbox_class,checkbox_name,checkbox_value);
+			convert_to_code();
+		}else{
+			class_not_found();
+		}	
+	}
+	else{
+		errMessage();
+	}
 });
 
 $("#add_selectbox_lgm").click(function(){
@@ -265,12 +328,20 @@ $("#add_selectbox_lgm").click(function(){
 	var selectbox_class = $("#lgm_selectbox_class").val(); 
 	var selectbox_name = $("#lgm_selectbox_name").val();
 
-	if(selectbox_append_to!=""&&selectbox_class!=""&&selectbox_name!="")
-		$(selectbox_append_to).addselectbox_lgm(selectbox_append_to,selectbox_class,selectbox_name);
-	else
-		return (alert("Fill all required fields"));
+	if(selectbox_append_to!=""&&selectbox_class!=""&&selectbox_name!=""){
 
-	convert_to_code();
+		var chk_class_exists = $("#append_to_demo_form").children().hasClass(selectbox_append_to);
+
+		if(chk_class_exists){
+			$(selectbox_append_to).addselectbox_lgm(selectbox_append_to,selectbox_class,selectbox_name);
+			convert_to_code();
+		}else{
+			class_not_found();
+		}	
+	}
+	else{
+		errMessage();
+	}
 });
 
 $("#add_button_lgm").click(function(){
@@ -278,10 +349,18 @@ $("#add_button_lgm").click(function(){
 	var button_class = $("#lgm_button_class").val(); 
 	var button_name = $("#lgm_button_name").val();
 
-	if(button_append_to!=""&&button_class!=""&&button_name!="")
-		$(button_append_to).addbutton_lgm(button_append_to,button_class,button_name);
-	else
-		return (alert("Fill all required fields"));
+	if(button_append_to!=""&&button_class!=""&&button_name!=""){
 
-	convert_to_code();
+		var chk_class_exists = $("#append_to_demo_form").children().hasClass(button_append_to);
+
+		if(chk_class_exists){
+			$(button_append_to).addbutton_lgm(button_append_to,button_class,button_name);
+			convert_to_code();
+		}else{
+			class_not_found();
+		}
+	}
+	else{
+		errMessage();
+	}
 });
